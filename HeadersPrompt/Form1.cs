@@ -13,13 +13,25 @@ namespace HeadersPrompt
 
     public partial class HeaderPrompt : Form
     {
+        public string HeaderName { get; private set; }
+        public string HeaderValue { get; private set; }
+
         public HeaderPrompt()
         {
             InitializeComponent();
         }
+        private void OkButton1_MouseClick(object sender, MouseEventArgs e)
+        {
+            this.HeaderName = this.comboBox1.Text;
+            this.HeaderValue = this.textBox1.Text;
+            this.Close();
+        }
 
-        public Dictionary<string, string> Execute() {
-            return null;
+        private void CancelButton1_MouseClick(object sender, MouseEventArgs e)
+        {
+            this.HeaderName = null;
+            this.HeaderValue = null;
+            this.Close();
         }
     }
 }

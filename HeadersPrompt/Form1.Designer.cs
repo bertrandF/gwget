@@ -36,8 +36,8 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.OkButton = new System.Windows.Forms.Button();
-            this.CancelButton = new System.Windows.Forms.Button();
+            this.OkButton1 = new System.Windows.Forms.Button();
+            this.CancelButton1 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -190,37 +190,40 @@
             // 
             // splitContainer2.Panel1
             // 
-            this.splitContainer2.Panel1.Controls.Add(this.OkButton);
+            this.splitContainer2.Panel1.Controls.Add(this.OkButton1);
             // 
             // splitContainer2.Panel2
             // 
-            this.splitContainer2.Panel2.Controls.Add(this.CancelButton);
+            this.splitContainer2.Panel2.Controls.Add(this.CancelButton1);
             this.splitContainer2.Size = new System.Drawing.Size(197, 28);
             this.splitContainer2.SplitterDistance = 100;
             this.splitContainer2.TabIndex = 0;
             // 
-            // OkButton
+            // OkButton1
             // 
-            this.OkButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.OkButton.Location = new System.Drawing.Point(0, 0);
-            this.OkButton.Name = "OkButton";
-            this.OkButton.Size = new System.Drawing.Size(100, 28);
-            this.OkButton.TabIndex = 0;
-            this.OkButton.Text = "OK";
-            this.OkButton.UseVisualStyleBackColor = true;
+            this.OkButton1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.OkButton1.Location = new System.Drawing.Point(0, 0);
+            this.OkButton1.Name = "OkButton1";
+            this.OkButton1.Size = new System.Drawing.Size(100, 28);
+            this.OkButton1.TabIndex = 0;
+            this.OkButton1.Text = "OK";
+            this.OkButton1.UseVisualStyleBackColor = true;
+            this.OkButton1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.OkButton1_MouseClick);
             // 
-            // CancelButton
+            // CancelButton1
             // 
-            this.CancelButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CancelButton.Location = new System.Drawing.Point(0, 0);
-            this.CancelButton.Name = "CancelButton";
-            this.CancelButton.Size = new System.Drawing.Size(93, 28);
-            this.CancelButton.TabIndex = 0;
-            this.CancelButton.Text = "Cancel";
-            this.CancelButton.UseVisualStyleBackColor = true;
+            this.CancelButton1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CancelButton1.Location = new System.Drawing.Point(0, 0);
+            this.CancelButton1.Name = "CancelButton1";
+            this.CancelButton1.Size = new System.Drawing.Size(93, 28);
+            this.CancelButton1.TabIndex = 0;
+            this.CancelButton1.Text = "Cancel";
+            this.CancelButton1.UseVisualStyleBackColor = true;
+            this.CancelButton1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.CancelButton1_MouseClick);
             // 
             // HeaderPrompt
             // 
+            this.AcceptButton = this.OkButton1;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(542, 109);
@@ -250,8 +253,8 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.SplitContainer splitContainer2;
-        private System.Windows.Forms.Button OkButton;
-        private System.Windows.Forms.Button CancelButton;
+        private System.Windows.Forms.Button OkButton1;
+        private System.Windows.Forms.Button CancelButton1;
     }
 }
 
