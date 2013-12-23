@@ -24,6 +24,7 @@ namespace HeadersPrompt
         {
             this.HeaderName = this.comboBox1.Text;
             this.HeaderValue = this.textBox1.Text;
+            this.DialogResult = DialogResult.OK;
             this.Close();
         }
 
@@ -31,6 +32,7 @@ namespace HeadersPrompt
         {
             this.HeaderName = null;
             this.HeaderValue = null;
+            this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
     }
