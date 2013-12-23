@@ -34,19 +34,12 @@
             this.HostLabel = new System.Windows.Forms.Label();
             this.PortLabel = new System.Windows.Forms.Label();
             this.MethodLabel = new System.Windows.Forms.Label();
-            this.RefererLabel = new System.Windows.Forms.Label();
-            this.HostnameLabel = new System.Windows.Forms.Label();
             this.UserAgentLabel = new System.Windows.Forms.Label();
-            this.CookieLabel = new System.Windows.Forms.Label();
             this.AdditionalFieldsLabel = new System.Windows.Forms.Label();
             this.HostnameTextBox = new System.Windows.Forms.TextBox();
             this.PortNumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.RefererTextBox = new System.Windows.Forms.TextBox();
-            this.HostTextBox = new System.Windows.Forms.TextBox();
-            this.AdditionalFieldsTextBox = new System.Windows.Forms.RichTextBox();
             this.MethodComboBox = new System.Windows.Forms.ComboBox();
             this.UserAgentComboBox = new System.Windows.Forms.ComboBox();
-            this.CookieTextBox = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.FileLabel = new System.Windows.Forms.Label();
             this.FileTextBox = new System.Windows.Forms.TextBox();
@@ -54,10 +47,16 @@
             this.DataTextBox = new System.Windows.Forms.RichTextBox();
             this.HTTPVersionLabel = new System.Windows.Forms.Label();
             this.HTTPVersionTextBox = new System.Windows.Forms.TextBox();
+            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.AddHeaderButton = new System.Windows.Forms.Button();
+            this.DeleteHeaderButton = new System.Windows.Forms.Button();
+            this.HeaderListView = new System.Windows.Forms.ListView();
+            this.HeaderColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ValueColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Response = new System.Windows.Forms.GroupBox();
-            this.ResponseTextBox = new System.Windows.Forms.RichTextBox();
             this.ResponseTabs = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.ResponseTextBox = new System.Windows.Forms.RichTextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.ResponseWebBrowser = new System.Windows.Forms.WebBrowser();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -67,6 +66,10 @@
             this.Request.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PortNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
+            this.splitContainer2.Panel1.SuspendLayout();
+            this.splitContainer2.Panel2.SuspendLayout();
+            this.splitContainer2.SuspendLayout();
             this.Response.SuspendLayout();
             this.ResponseTabs.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -86,7 +89,7 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.Response);
-            this.splitContainer1.Size = new System.Drawing.Size(777, 596);
+            this.splitContainer1.Size = new System.Drawing.Size(777, 466);
             this.splitContainer1.SplitterDistance = 337;
             this.splitContainer1.TabIndex = 0;
             // 
@@ -96,7 +99,7 @@
             this.Request.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Request.Location = new System.Drawing.Point(0, 0);
             this.Request.Name = "Request";
-            this.Request.Size = new System.Drawing.Size(337, 596);
+            this.Request.Size = new System.Drawing.Size(337, 466);
             this.Request.TabIndex = 0;
             this.Request.TabStop = false;
             this.Request.Text = "Request";
@@ -109,45 +112,38 @@
             this.tableLayoutPanel1.Controls.Add(this.HostLabel, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.PortLabel, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.MethodLabel, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.RefererLabel, 0, 5);
-            this.tableLayoutPanel1.Controls.Add(this.HostnameLabel, 0, 6);
-            this.tableLayoutPanel1.Controls.Add(this.UserAgentLabel, 0, 7);
-            this.tableLayoutPanel1.Controls.Add(this.CookieLabel, 0, 8);
-            this.tableLayoutPanel1.Controls.Add(this.AdditionalFieldsLabel, 0, 9);
+            this.tableLayoutPanel1.Controls.Add(this.UserAgentLabel, 0, 5);
+            this.tableLayoutPanel1.Controls.Add(this.AdditionalFieldsLabel, 0, 6);
             this.tableLayoutPanel1.Controls.Add(this.HostnameTextBox, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.PortNumericUpDown, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.RefererTextBox, 1, 5);
-            this.tableLayoutPanel1.Controls.Add(this.HostTextBox, 1, 6);
-            this.tableLayoutPanel1.Controls.Add(this.AdditionalFieldsTextBox, 1, 9);
             this.tableLayoutPanel1.Controls.Add(this.MethodComboBox, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.UserAgentComboBox, 1, 7);
-            this.tableLayoutPanel1.Controls.Add(this.CookieTextBox, 1, 8);
-            this.tableLayoutPanel1.Controls.Add(this.button1, 1, 11);
+            this.tableLayoutPanel1.Controls.Add(this.UserAgentComboBox, 1, 5);
+            this.tableLayoutPanel1.Controls.Add(this.button1, 1, 9);
             this.tableLayoutPanel1.Controls.Add(this.FileLabel, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.FileTextBox, 1, 4);
-            this.tableLayoutPanel1.Controls.Add(this.DataLabel, 0, 10);
-            this.tableLayoutPanel1.Controls.Add(this.DataTextBox, 1, 10);
+            this.tableLayoutPanel1.Controls.Add(this.DataLabel, 0, 8);
+            this.tableLayoutPanel1.Controls.Add(this.DataTextBox, 1, 8);
             this.tableLayoutPanel1.Controls.Add(this.HTTPVersionLabel, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.HTTPVersionTextBox, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.splitContainer2, 1, 7);
+            this.tableLayoutPanel1.Controls.Add(this.HeaderListView, 1, 6);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 16);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 12;
+            this.tableLayoutPanel1.RowCount = 10;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(331, 577);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(331, 447);
             this.tableLayoutPanel1.TabIndex = 0;
-            this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
             // HostLabel
             // 
@@ -182,57 +178,25 @@
             this.MethodLabel.Text = "Method :";
             this.MethodLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // RefererLabel
-            // 
-            this.RefererLabel.AutoSize = true;
-            this.RefererLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.RefererLabel.Location = new System.Drawing.Point(3, 125);
-            this.RefererLabel.Name = "RefererLabel";
-            this.RefererLabel.Size = new System.Drawing.Size(70, 25);
-            this.RefererLabel.TabIndex = 3;
-            this.RefererLabel.Text = "Referer :";
-            this.RefererLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // HostnameLabel
-            // 
-            this.HostnameLabel.AutoSize = true;
-            this.HostnameLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.HostnameLabel.Location = new System.Drawing.Point(3, 150);
-            this.HostnameLabel.Name = "HostnameLabel";
-            this.HostnameLabel.Size = new System.Drawing.Size(70, 25);
-            this.HostnameLabel.TabIndex = 4;
-            this.HostnameLabel.Text = "Host :";
-            this.HostnameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // UserAgentLabel
             // 
             this.UserAgentLabel.AutoSize = true;
             this.UserAgentLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.UserAgentLabel.Location = new System.Drawing.Point(3, 175);
+            this.UserAgentLabel.Location = new System.Drawing.Point(3, 125);
             this.UserAgentLabel.Name = "UserAgentLabel";
             this.UserAgentLabel.Size = new System.Drawing.Size(70, 25);
             this.UserAgentLabel.TabIndex = 5;
             this.UserAgentLabel.Text = "User-Agent :";
             this.UserAgentLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // CookieLabel
-            // 
-            this.CookieLabel.AutoSize = true;
-            this.CookieLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CookieLabel.Location = new System.Drawing.Point(3, 200);
-            this.CookieLabel.Name = "CookieLabel";
-            this.CookieLabel.Size = new System.Drawing.Size(70, 25);
-            this.CookieLabel.TabIndex = 6;
-            this.CookieLabel.Text = "Cookie :";
-            this.CookieLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // AdditionalFieldsLabel
             // 
             this.AdditionalFieldsLabel.AutoSize = true;
             this.AdditionalFieldsLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.AdditionalFieldsLabel.Location = new System.Drawing.Point(3, 225);
+            this.AdditionalFieldsLabel.Location = new System.Drawing.Point(3, 150);
             this.AdditionalFieldsLabel.Name = "AdditionalFieldsLabel";
-            this.AdditionalFieldsLabel.Size = new System.Drawing.Size(70, 102);
+            this.tableLayoutPanel1.SetRowSpan(this.AdditionalFieldsLabel, 2);
+            this.AdditionalFieldsLabel.Size = new System.Drawing.Size(70, 105);
             this.AdditionalFieldsLabel.TabIndex = 7;
             this.AdditionalFieldsLabel.Text = "Additional fields :";
             this.AdditionalFieldsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -244,7 +208,6 @@
             this.HostnameTextBox.Name = "HostnameTextBox";
             this.HostnameTextBox.Size = new System.Drawing.Size(249, 20);
             this.HostnameTextBox.TabIndex = 8;
-            this.HostnameTextBox.TextChanged += new System.EventHandler(this.HostnameTextBox_TextChanged);
             // 
             // PortNumericUpDown
             // 
@@ -268,33 +231,6 @@
             0,
             0,
             0});
-            // 
-            // RefererTextBox
-            // 
-            this.RefererTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.RefererTextBox.Location = new System.Drawing.Point(79, 128);
-            this.RefererTextBox.Name = "RefererTextBox";
-            this.RefererTextBox.Size = new System.Drawing.Size(249, 20);
-            this.RefererTextBox.TabIndex = 10;
-            // 
-            // HostTextBox
-            // 
-            this.HostTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.HostTextBox.Location = new System.Drawing.Point(79, 153);
-            this.HostTextBox.Name = "HostTextBox";
-            this.HostTextBox.Size = new System.Drawing.Size(249, 20);
-            this.HostTextBox.TabIndex = 11;
-            // 
-            // AdditionalFieldsTextBox
-            // 
-            this.AdditionalFieldsTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.AdditionalFieldsTextBox.Location = new System.Drawing.Point(79, 228);
-            this.AdditionalFieldsTextBox.Name = "AdditionalFieldsTextBox";
-            this.AdditionalFieldsTextBox.Size = new System.Drawing.Size(249, 96);
-            this.AdditionalFieldsTextBox.TabIndex = 12;
-            this.AdditionalFieldsTextBox.Text = "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0." +
-    "8\\\nAccept-Encoding: gzip,deflate,sdch\nAccept-Language: fr-FR,fr;q=0.8,en-US;q=0." +
-    "6,en;q=0.4";
             // 
             // MethodComboBox
             // 
@@ -321,27 +257,19 @@
             this.UserAgentComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.UserAgentComboBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.UserAgentComboBox.FormattingEnabled = true;
-            this.UserAgentComboBox.Location = new System.Drawing.Point(79, 178);
+            this.UserAgentComboBox.Location = new System.Drawing.Point(79, 128);
             this.UserAgentComboBox.Name = "UserAgentComboBox";
             this.UserAgentComboBox.Size = new System.Drawing.Size(249, 21);
             this.UserAgentComboBox.TabIndex = 14;
             this.UserAgentComboBox.Text = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9) AppleWebKit/537.71 (KHTML, like Geck" +
     "o) Version/7.0 Safari/537.71";
             // 
-            // CookieTextBox
-            // 
-            this.CookieTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CookieTextBox.Location = new System.Drawing.Point(79, 203);
-            this.CookieTextBox.Name = "CookieTextBox";
-            this.CookieTextBox.Size = new System.Drawing.Size(249, 20);
-            this.CookieTextBox.TabIndex = 15;
-            // 
             // button1
             // 
             this.button1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.button1.Location = new System.Drawing.Point(253, 555);
+            this.button1.Location = new System.Drawing.Point(253, 338);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 19);
+            this.button1.Size = new System.Drawing.Size(75, 106);
             this.button1.TabIndex = 16;
             this.button1.Text = "Send";
             this.button1.UseVisualStyleBackColor = true;
@@ -371,9 +299,9 @@
             // 
             this.DataLabel.AutoSize = true;
             this.DataLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DataLabel.Location = new System.Drawing.Point(3, 327);
+            this.DataLabel.Location = new System.Drawing.Point(3, 255);
             this.DataLabel.Name = "DataLabel";
-            this.DataLabel.Size = new System.Drawing.Size(70, 225);
+            this.DataLabel.Size = new System.Drawing.Size(70, 80);
             this.DataLabel.TabIndex = 19;
             this.DataLabel.Text = "Data :";
             this.DataLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -381,9 +309,9 @@
             // DataTextBox
             // 
             this.DataTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DataTextBox.Location = new System.Drawing.Point(79, 330);
+            this.DataTextBox.Location = new System.Drawing.Point(79, 258);
             this.DataTextBox.Name = "DataTextBox";
-            this.DataTextBox.Size = new System.Drawing.Size(249, 219);
+            this.DataTextBox.Size = new System.Drawing.Size(249, 74);
             this.DataTextBox.TabIndex = 20;
             this.DataTextBox.Text = "";
             // 
@@ -407,26 +335,81 @@
             this.HTTPVersionTextBox.TabIndex = 22;
             this.HTTPVersionTextBox.Text = "HTTP/1.1";
             // 
+            // splitContainer2
+            // 
+            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer2.Location = new System.Drawing.Point(79, 233);
+            this.splitContainer2.Name = "splitContainer2";
+            // 
+            // splitContainer2.Panel1
+            // 
+            this.splitContainer2.Panel1.Controls.Add(this.AddHeaderButton);
+            // 
+            // splitContainer2.Panel2
+            // 
+            this.splitContainer2.Panel2.Controls.Add(this.DeleteHeaderButton);
+            this.splitContainer2.Size = new System.Drawing.Size(249, 19);
+            this.splitContainer2.SplitterDistance = 83;
+            this.splitContainer2.TabIndex = 23;
+            // 
+            // AddHeaderButton
+            // 
+            this.AddHeaderButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.AddHeaderButton.Location = new System.Drawing.Point(0, 0);
+            this.AddHeaderButton.Name = "AddHeaderButton";
+            this.AddHeaderButton.Size = new System.Drawing.Size(83, 19);
+            this.AddHeaderButton.TabIndex = 0;
+            this.AddHeaderButton.Text = "Add Header";
+            this.AddHeaderButton.UseVisualStyleBackColor = true;
+            this.AddHeaderButton.MouseClick += new System.Windows.Forms.MouseEventHandler(this.AddHeaderButton_MouseClick);
+            // 
+            // DeleteHeaderButton
+            // 
+            this.DeleteHeaderButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DeleteHeaderButton.Location = new System.Drawing.Point(0, 0);
+            this.DeleteHeaderButton.Name = "DeleteHeaderButton";
+            this.DeleteHeaderButton.Size = new System.Drawing.Size(162, 19);
+            this.DeleteHeaderButton.TabIndex = 0;
+            this.DeleteHeaderButton.Text = "Delete Header";
+            this.DeleteHeaderButton.UseVisualStyleBackColor = true;
+            this.DeleteHeaderButton.MouseClick += new System.Windows.Forms.MouseEventHandler(this.DeleteHeaderButton_MouseClick);
+            // 
+            // HeaderListView
+            // 
+            this.HeaderListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.HeaderColumn,
+            this.ValueColumn});
+            this.HeaderListView.Cursor = System.Windows.Forms.Cursors.Cross;
+            this.HeaderListView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.HeaderListView.FullRowSelect = true;
+            this.HeaderListView.GridLines = true;
+            this.HeaderListView.Location = new System.Drawing.Point(79, 153);
+            this.HeaderListView.Name = "HeaderListView";
+            this.HeaderListView.Size = new System.Drawing.Size(249, 74);
+            this.HeaderListView.TabIndex = 24;
+            this.HeaderListView.UseCompatibleStateImageBehavior = false;
+            this.HeaderListView.View = System.Windows.Forms.View.Details;
+            // 
+            // HeaderColumn
+            // 
+            this.HeaderColumn.Text = "Name";
+            this.HeaderColumn.Width = 112;
+            // 
+            // ValueColumn
+            // 
+            this.ValueColumn.Text = "Value";
+            this.ValueColumn.Width = 113;
+            // 
             // Response
             // 
             this.Response.Controls.Add(this.ResponseTabs);
             this.Response.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Response.Location = new System.Drawing.Point(0, 0);
             this.Response.Name = "Response";
-            this.Response.Size = new System.Drawing.Size(436, 596);
+            this.Response.Size = new System.Drawing.Size(436, 466);
             this.Response.TabIndex = 0;
             this.Response.TabStop = false;
             this.Response.Text = "Response";
-            // 
-            // ResponseTextBox
-            // 
-            this.ResponseTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ResponseTextBox.Location = new System.Drawing.Point(3, 3);
-            this.ResponseTextBox.Name = "ResponseTextBox";
-            this.ResponseTextBox.ReadOnly = true;
-            this.ResponseTextBox.Size = new System.Drawing.Size(416, 545);
-            this.ResponseTextBox.TabIndex = 0;
-            this.ResponseTextBox.Text = "";
             // 
             // ResponseTabs
             // 
@@ -436,7 +419,7 @@
             this.ResponseTabs.Location = new System.Drawing.Point(3, 16);
             this.ResponseTabs.Name = "ResponseTabs";
             this.ResponseTabs.SelectedIndex = 0;
-            this.ResponseTabs.Size = new System.Drawing.Size(430, 577);
+            this.ResponseTabs.Size = new System.Drawing.Size(430, 447);
             this.ResponseTabs.TabIndex = 1;
             // 
             // tabPage1
@@ -445,10 +428,20 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(422, 551);
+            this.tabPage1.Size = new System.Drawing.Size(422, 421);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Raw";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // ResponseTextBox
+            // 
+            this.ResponseTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ResponseTextBox.Location = new System.Drawing.Point(3, 3);
+            this.ResponseTextBox.Name = "ResponseTextBox";
+            this.ResponseTextBox.ReadOnly = true;
+            this.ResponseTextBox.Size = new System.Drawing.Size(416, 415);
+            this.ResponseTextBox.TabIndex = 0;
+            this.ResponseTextBox.Text = "";
             // 
             // tabPage2
             // 
@@ -456,7 +449,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(422, 551);
+            this.tabPage2.Size = new System.Drawing.Size(422, 421);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Browser";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -468,14 +461,14 @@
             this.ResponseWebBrowser.MinimumSize = new System.Drawing.Size(20, 20);
             this.ResponseWebBrowser.Name = "ResponseWebBrowser";
             this.ResponseWebBrowser.ScriptErrorsSuppressed = true;
-            this.ResponseWebBrowser.Size = new System.Drawing.Size(416, 545);
+            this.ResponseWebBrowser.Size = new System.Drawing.Size(416, 415);
             this.ResponseWebBrowser.TabIndex = 0;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(777, 596);
+            this.ClientSize = new System.Drawing.Size(777, 466);
             this.Controls.Add(this.splitContainer1);
             this.Name = "Form1";
             this.Text = "Graphical wget";
@@ -487,6 +480,10 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PortNumericUpDown)).EndInit();
+            this.splitContainer2.Panel1.ResumeLayout(false);
+            this.splitContainer2.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
+            this.splitContainer2.ResumeLayout(false);
             this.Response.ResumeLayout(false);
             this.ResponseTabs.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
@@ -504,19 +501,12 @@
         private System.Windows.Forms.Label PortLabel;
         private System.Windows.Forms.GroupBox Response;
         private System.Windows.Forms.Label MethodLabel;
-        private System.Windows.Forms.Label RefererLabel;
-        private System.Windows.Forms.Label HostnameLabel;
         private System.Windows.Forms.Label UserAgentLabel;
-        private System.Windows.Forms.Label CookieLabel;
         private System.Windows.Forms.Label AdditionalFieldsLabel;
         private System.Windows.Forms.TextBox HostnameTextBox;
         private System.Windows.Forms.NumericUpDown PortNumericUpDown;
-        private System.Windows.Forms.TextBox RefererTextBox;
-        private System.Windows.Forms.TextBox HostTextBox;
-        private System.Windows.Forms.RichTextBox AdditionalFieldsTextBox;
         private System.Windows.Forms.ComboBox MethodComboBox;
         private System.Windows.Forms.ComboBox UserAgentComboBox;
-        private System.Windows.Forms.TextBox CookieTextBox;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.RichTextBox ResponseTextBox;
         private System.Windows.Forms.Label FileLabel;
@@ -529,6 +519,12 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.WebBrowser ResponseWebBrowser;
+        private System.Windows.Forms.SplitContainer splitContainer2;
+        private System.Windows.Forms.Button AddHeaderButton;
+        private System.Windows.Forms.Button DeleteHeaderButton;
+        private System.Windows.Forms.ListView HeaderListView;
+        private System.Windows.Forms.ColumnHeader HeaderColumn;
+        private System.Windows.Forms.ColumnHeader ValueColumn;
 
     }
 }

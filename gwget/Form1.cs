@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HeadersPrompt;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -37,18 +38,6 @@ namespace gwget
             }
 
             return true;
-        }
-
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        // When typing url, update the Host and Refere fields accordingly
-        private void HostnameTextBox_TextChanged(object sender, EventArgs e)
-        {
-            HostTextBox.Text = HostnameTextBox.Text;
-            RefererTextBox.Text = "http://" + HostnameTextBox.Text;
         }
 
         // Write the response in the ResponseTextBox
@@ -130,63 +119,33 @@ namespace gwget
             if(httpReq != null) httpReq.Close();
             httpReq = null;
             httpReq = new HttpRequest(uriBuilder.Uri);
-            httpReq.Headers.Add("Referer", RefererTextBox.Text);
-            httpReq.Headers.Add("Host", HostTextBox.Text);
             httpReq.Headers.Add("User-Agent", UserAgentComboBox.Text);
-            httpReq.Headers.Add("Cookie", CookieTextBox.Text);
-            httpReq.RawHeaders = AdditionalFieldsTextBox.Text;
+            // TODO: other fields
             httpReq.Data = DataTextBox.Text;
             httpReq.Method = MethodComboBox.Text;
             httpReq.HttpVersion = HTTPVersionTextBox.Text;
 
             httpReq.SendRequest(new AsyncCallback(ReceiveCallback));
+        }
 
+        // Add a new header
+        private void AddHeaderButton_MouseClick(object sender, MouseEventArgs e)
+        {
+            HeaderPrompt headerPrompt = new HeaderPrompt();
+            if (headerPrompt.ShowDialog() == DialogResult.OK)
+            {
+                ListViewItem lvi = new ListViewItem(headerPrompt.HeaderName);
+                lvi.SubItems.Add(headerPrompt.HeaderValue);
+                HeaderListView.Items.Add(lvi);
+            }
 
-            //
-            // Cette merde ne permet pas de mettre uniquement les champs que l on veut donc du coup on refait notre client web
-            //
-            //WebClient client = new WebClient();
-            //string responseData = "";
+        }
 
-            ////HttpWebRequest httpReq = WebRequest.CreateHttp(uriBuilder.Uri);
-            ////httpReq.Referer = RefererTextBox.Text;
-            ////httpReq.Host = HostTextBox.Text;
-            ////httpReq.UserAgent = UserAgentComboBox.Text;
-            ////if(CookieTextBox.Text != "")
-            ////    httpReq.CookieContainer.SetCookies(httpReq.RequestUri, CookieTextBox.Text);
-            ////httpReq.Method = MethodComboBox.Text;
-
-            //try
-            //{
-            //    client.Headers.Add("Referer", RefererTextBox.Text);
-            //    client.Headers.Add("Host", HostTextBox.Text);
-            //    client.Headers.Add("User-Agent", UserAgentComboBox.Text);
-            //    client.Headers.Add("Cookie", CookieTextBox.Text);
-
-            //    Stream response = client.OpenRead(uriBuilder.Uri);
-            //    StreamReader reader = new StreamReader(response);
-            //    //WebResponse response = httpReq.GetResponse();
-            //    //StreamReader reader = new StreamReader(response.GetResponseStream());
-            //    responseData = reader.ReadToEnd();
-
-            //    ResponseTextBox.Text = "HTTP/1.1 200 OK\r\n";
-
-            //    reader.Close();
-            //    response.Close();
-            //}
-            //catch (WebException err) 
-            //{
-            //    if (err.Status == WebExceptionStatus.ProtocolError)
-            //        ResponseTextBox.Text = "HTTP/1.1 " + (int)((HttpWebResponse)err.Response).StatusCode + " " + ((HttpWebResponse)err.Response).StatusDescription + "\r\n";
-            //}
-
-            ////if (client.ResponseHeaders != null)
-            ////    foreach (string k in client.ResponseHeaders.Keys)
-            ////        ResponseTextBox.Text += k + " :" + client.ResponseHeaders[k] + "\r\n";
-
-            //ResponseTextBox.Text += "\r\n\r\n" + responseData;
-            
-            
+        // Delete selected header
+        private void DeleteHeaderButton_MouseClick(object sender, MouseEventArgs e)
+        {
+            foreach (ListViewItem i in HeaderListView.SelectedItems)
+                HeaderListView.Items.Remove(i);
         }
 
 
@@ -194,6 +153,7 @@ namespace gwget
         public Form1()
         {
             InitializeComponent();
+
 
             // Create the UA list -- cannot make it from the GUI because too long
             this.UserAgentComboBox.MaxDropDownItems = 30;
@@ -11002,6 +10962,7 @@ namespace gwget
 "amaya/11.2 amaya/5.4.0",
             });
         }
+
     }
 }
 
