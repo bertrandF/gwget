@@ -55,6 +55,12 @@ namespace gwget
             ResponseTextBox.Text = text;
         }
 
+        private delegate void DelegateBrowseWebPage(Uri uri);
+
+        public void BrowseWebPage(Uri uri) {
+            ResponseWebBrowser.Navigate(uri);
+        }
+
         private void ReceiveCallback(IAsyncResult ar)
         {
             try
@@ -75,6 +81,8 @@ namespace gwget
                     state.sb.Append(Encoding.UTF8.GetString(state.buffer, 0, bytesRead));
 
                     ResponseTextBox.BeginInvoke(new DelegateWriteResponseTextBox(WriteResponseTextBox), state.sb.ToString());
+                    ResponseWebBrowser.BeginInvoke(new DelegateBrowseWebPage(BrowseWebPage), state.httpReq.Uri);
+                    
 
                     // Get the rest of the data.
                     client.BeginReceive(state.buffer, 0, StateObject.BufferSize, 0,

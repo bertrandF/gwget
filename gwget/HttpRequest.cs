@@ -19,6 +19,8 @@ namespace gwget
         public byte[] buffer = new byte[BufferSize];
         // Received data string.
         public StringBuilder sb = new StringBuilder();
+        // Http request object
+        public HttpRequest httpReq;
     }
 
     class HttpResponse 
@@ -31,7 +33,7 @@ namespace gwget
         }
     }
 
-    class HttpRequest
+    public class HttpRequest
     {
         private readonly string HTTP_EOL = "\r\n";
         private Socket socket;
@@ -87,6 +89,7 @@ namespace gwget
 
             StateObject state = new StateObject();
             state.workSocket = this.socket;
+            state.httpReq = this;
             this.socket.BeginReceive(state.buffer, 0, StateObject.BufferSize, 0, callback, state);
 
             //HttpResponse httpResp = new HttpResponse();
