@@ -56,6 +56,10 @@
             this.HTTPVersionTextBox = new System.Windows.Forms.TextBox();
             this.Response = new System.Windows.Forms.GroupBox();
             this.ResponseTextBox = new System.Windows.Forms.RichTextBox();
+            this.ResponseTabs = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.WebBrowser = new System.Windows.Forms.WebBrowser();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -64,6 +68,9 @@
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PortNumericUpDown)).BeginInit();
             this.Response.SuspendLayout();
+            this.ResponseTabs.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -402,7 +409,7 @@
             // 
             // Response
             // 
-            this.Response.Controls.Add(this.ResponseTextBox);
+            this.Response.Controls.Add(this.ResponseTabs);
             this.Response.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Response.Location = new System.Drawing.Point(0, 0);
             this.Response.Name = "Response";
@@ -414,12 +421,54 @@
             // ResponseTextBox
             // 
             this.ResponseTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ResponseTextBox.Location = new System.Drawing.Point(3, 16);
+            this.ResponseTextBox.Location = new System.Drawing.Point(3, 3);
             this.ResponseTextBox.Name = "ResponseTextBox";
             this.ResponseTextBox.ReadOnly = true;
-            this.ResponseTextBox.Size = new System.Drawing.Size(430, 577);
+            this.ResponseTextBox.Size = new System.Drawing.Size(416, 545);
             this.ResponseTextBox.TabIndex = 0;
             this.ResponseTextBox.Text = "";
+            // 
+            // ResponseTabs
+            // 
+            this.ResponseTabs.Controls.Add(this.tabPage1);
+            this.ResponseTabs.Controls.Add(this.tabPage2);
+            this.ResponseTabs.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ResponseTabs.Location = new System.Drawing.Point(3, 16);
+            this.ResponseTabs.Name = "ResponseTabs";
+            this.ResponseTabs.SelectedIndex = 0;
+            this.ResponseTabs.Size = new System.Drawing.Size(430, 577);
+            this.ResponseTabs.TabIndex = 1;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.ResponseTextBox);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(422, 551);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Raw";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.WebBrowser);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(422, 551);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Browser";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // WebBrowser
+            // 
+            this.WebBrowser.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.WebBrowser.Location = new System.Drawing.Point(3, 3);
+            this.WebBrowser.MinimumSize = new System.Drawing.Size(20, 20);
+            this.WebBrowser.Name = "WebBrowser";
+            this.WebBrowser.Size = new System.Drawing.Size(416, 545);
+            this.WebBrowser.TabIndex = 0;
             // 
             // Form1
             // 
@@ -438,6 +487,9 @@
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PortNumericUpDown)).EndInit();
             this.Response.ResumeLayout(false);
+            this.ResponseTabs.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -472,6 +524,10 @@
         private System.Windows.Forms.RichTextBox DataTextBox;
         private System.Windows.Forms.Label HTTPVersionLabel;
         private System.Windows.Forms.TextBox HTTPVersionTextBox;
+        private System.Windows.Forms.TabControl ResponseTabs;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.WebBrowser WebBrowser;
 
     }
 }
