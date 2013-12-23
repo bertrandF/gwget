@@ -16,9 +16,10 @@ namespace gwget
 
     public partial class Form1 : Form
     {
-
+        // Members
         private HttpRequest httpReq;
 
+        // Check the differents fields of the form for mistakes
         private bool validateForm() {
             if (Uri.CheckHostName(HostnameTextBox.Text) == UriHostNameType.Unknown) {
                 MessageBox.Show("Bad Host name !", "Bad Entry");
@@ -43,20 +44,21 @@ namespace gwget
 
         }
 
+        // When typing url, update the Host and Refere fields accordingly
         private void HostnameTextBox_TextChanged(object sender, EventArgs e)
         {
             HostTextBox.Text = HostnameTextBox.Text;
             RefererTextBox.Text = "http://" + HostnameTextBox.Text;
         }
 
+        // Write the response in the ResponseTextBox
         public delegate void DelegateWriteResponseTextBox(string text);
-
         public void WriteResponseTextBox(string text) {
             ResponseTextBox.Text = text;
         }
 
+        // Update the ResponseWebBrowser with the received response
         private delegate void DelegateBrowseWebPage(string page);
-
         public void BrowseWebPage(string page) {
             ResponseWebBrowser.Navigate("about:blank");
             try
@@ -71,6 +73,7 @@ namespace gwget
             ResponseWebBrowser.DocumentText = page;
         }
 
+        // Callback for async receive
         private void ReceiveCallback(IAsyncResult ar)
         {
             try
@@ -90,13 +93,14 @@ namespace gwget
                         if (state.buffer[i] == 0) state.buffer[i] = Encoding.UTF8.GetBytes(" ")[0];
                     state.sb.Append(Encoding.UTF8.GetString(state.buffer, 0, bytesRead));
 
+                    // Update ResponseTextBox
                     ResponseTextBox.BeginInvoke(new DelegateWriteResponseTextBox(WriteResponseTextBox), state.sb.ToString());
                     
-
                     // Get the rest of the data.
                     client.BeginReceive(state.buffer, 0, StateObject.BufferSize, 0,
                         new AsyncCallback(ReceiveCallback), state);
 
+                    // Update ResponseWebBrowser
                     state.httpReq.httpRes.Text = state.sb.ToString();
                     ResponseWebBrowser.BeginInvoke(new DelegateBrowseWebPage(BrowseWebPage), state.httpReq.httpRes.Page);
                 }
@@ -107,6 +111,7 @@ namespace gwget
             }
         }
 
+        // Click on Send Button
         private void button1_Click(object sender, EventArgs e)
         {
             if (!validateForm()) return;
@@ -185,11 +190,12 @@ namespace gwget
         }
 
 
-
+        // Constructor
         public Form1()
         {
             InitializeComponent();
 
+            // Create the UA list -- cannot make it from the GUI because too long
             this.UserAgentComboBox.MaxDropDownItems = 30;
             this.UserAgentComboBox.Items.AddRange(new object[] { 
             "Mozilla/5.0 (compatible; U; ABrowse 0.6; Syllable) AppleWebKit/420+ (KHTML, like Gecko)",

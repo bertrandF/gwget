@@ -8,9 +8,13 @@ using System.Threading.Tasks;
 
 namespace gwget
 {
+    // ---------------------------------------------------
+    // *************** STATE OBJECT **********************
     // State object for receiving data from remote device.
+    // ---------------------------------------------------
     public class StateObject
     {
+        // Members
         // Client socket.
         public Socket workSocket = null;
         // Size of receive buffer.
@@ -23,18 +27,29 @@ namespace gwget
         public HttpRequest httpReq;
     }
 
+    // -------------------------------------------------
+    // *************** HTTP RESPONSE *******************
+    // Object representing the response sent to the user
+    // -------------------------------------------------
    public  class HttpResponse 
     {
+       // Properties
+       // Complete response
        private string text;
        public string Text { get { return text; } set { parseResponse(value); text = value; } }
+       // Web page only
         public string Page { get; private set; }
+       //Headers
         public string Headers { get; private set; }
 
+       // Constructor
         public HttpResponse() 
         {
             this.Text = "";
         }
 
+       // Parse the whole Http response to extract the header and page.
+       // TODO: What if page compressed ?
         public void parseResponse(string text) {
             int offset = text.IndexOf(HttpRequest.HTTP_EOL + HttpRequest.HTTP_EOL);
             if (offset > 0)
@@ -45,8 +60,13 @@ namespace gwget
         }
     }
 
+   // -------------------------------------------------
+   // *************** HTTP REQUEST ********************
+   // User-made request
+   // -------------------------------------------------
     public class HttpRequest
     {
+        // Properties
         public static readonly string HTTP_EOL = "\r\n";
         private Socket socket;
         public Uri Uri { get; private set; }
@@ -57,7 +77,7 @@ namespace gwget
         public string Data { get; set; }
         public HttpResponse httpRes { get; set; }
         
-        
+        // Constructor
         public HttpRequest(Uri uri) {
             this.Uri = uri;
             this.socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
@@ -69,11 +89,13 @@ namespace gwget
             this.httpRes = new HttpResponse();
         }
 
+        // Close connections
         public void Close() {
             if(this.socket.Connected)
                 this.socket.Close();
         }
 
+        // Senf the forged request
         public void SendRequest(AsyncCallback callback) {
             try
             {
@@ -117,6 +139,7 @@ namespace gwget
         }
 
 
+        // Convertion: String <-> Bytes
         // TODO: Take care of the encoding !!!
         public static byte[] MakeBytesFromString(string str) 
         {
