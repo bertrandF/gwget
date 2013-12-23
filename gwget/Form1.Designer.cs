@@ -59,7 +59,7 @@
             this.ResponseTabs = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.WebBrowser = new System.Windows.Forms.WebBrowser();
+            this.ResponseWebBrowser = new System.Windows.Forms.WebBrowser();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -452,7 +452,7 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.WebBrowser);
+            this.tabPage2.Controls.Add(this.ResponseWebBrowser);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -461,14 +461,14 @@
             this.tabPage2.Text = "Browser";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // WebBrowser
+            // ResponseWebBrowser
             // 
-            this.WebBrowser.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.WebBrowser.Location = new System.Drawing.Point(3, 3);
-            this.WebBrowser.MinimumSize = new System.Drawing.Size(20, 20);
-            this.WebBrowser.Name = "WebBrowser";
-            this.WebBrowser.Size = new System.Drawing.Size(416, 545);
-            this.WebBrowser.TabIndex = 0;
+            this.ResponseWebBrowser.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ResponseWebBrowser.Location = new System.Drawing.Point(3, 3);
+            this.ResponseWebBrowser.MinimumSize = new System.Drawing.Size(20, 20);
+            this.ResponseWebBrowser.Name = "ResponseWebBrowser";
+            this.ResponseWebBrowser.Size = new System.Drawing.Size(416, 545);
+            this.ResponseWebBrowser.TabIndex = 0;
             // 
             // Form1
             // 
@@ -527,7 +527,7 @@
         private System.Windows.Forms.TabControl ResponseTabs;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.WebBrowser WebBrowser;
+        private System.Windows.Forms.WebBrowser ResponseWebBrowser;
 
     }
 }
