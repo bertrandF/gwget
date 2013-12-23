@@ -55,10 +55,20 @@ namespace gwget
             ResponseTextBox.Text = text;
         }
 
-        private delegate void DelegateBrowseWebPage(Uri uri);
+        private delegate void DelegateBrowseWebPage(string page);
 
-        public void BrowseWebPage(Uri uri) {
-            ResponseWebBrowser.Navigate(uri);
+        public void BrowseWebPage(string page) {
+            ResponseWebBrowser.Navigate("about:blank");
+            try
+            {
+                if (ResponseWebBrowser.Document != null)
+                {
+                    ResponseWebBrowser.Document.Write(string.Empty);
+                }
+            }
+            catch (Exception err)
+            { } // do nothing with this
+            ResponseWebBrowser.DocumentText = page;
         }
 
         private void ReceiveCallback(IAsyncResult ar)
@@ -81,12 +91,14 @@ namespace gwget
                     state.sb.Append(Encoding.UTF8.GetString(state.buffer, 0, bytesRead));
 
                     ResponseTextBox.BeginInvoke(new DelegateWriteResponseTextBox(WriteResponseTextBox), state.sb.ToString());
-                    ResponseWebBrowser.BeginInvoke(new DelegateBrowseWebPage(BrowseWebPage), state.httpReq.Uri);
                     
 
                     // Get the rest of the data.
                     client.BeginReceive(state.buffer, 0, StateObject.BufferSize, 0,
                         new AsyncCallback(ReceiveCallback), state);
+
+                    state.httpReq.httpRes.Text = state.sb.ToString();
+                    ResponseWebBrowser.BeginInvoke(new DelegateBrowseWebPage(BrowseWebPage), state.httpReq.httpRes.Page);
                 }
             }
             catch (Exception e)

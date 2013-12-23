@@ -23,19 +23,31 @@ namespace gwget
         public HttpRequest httpReq;
     }
 
-    class HttpResponse 
+   public  class HttpResponse 
     {
-        public string Text { get; set; }
+       private string text;
+       public string Text { get { return text; } set { parseResponse(value); text = value; } }
+        public string Page { get; private set; }
+        public string Headers { get; private set; }
 
         public HttpResponse() 
         {
             this.Text = "";
         }
+
+        public void parseResponse(string text) {
+            int offset = text.IndexOf(HttpRequest.HTTP_EOL + HttpRequest.HTTP_EOL);
+            if (offset > 0)
+            {
+                this.Headers = text.Substring(0, offset);
+                this.Page = text.Substring(offset);
+            }
+        }
     }
 
     public class HttpRequest
     {
-        private readonly string HTTP_EOL = "\r\n";
+        public static readonly string HTTP_EOL = "\r\n";
         private Socket socket;
         public Uri Uri { get; private set; }
         public Dictionary<string, string> Headers { get; private set; }
@@ -43,6 +55,7 @@ namespace gwget
         public string HttpVersion { get; set; }
         public string RawHeaders { get; set; }
         public string Data { get; set; }
+        public HttpResponse httpRes { get; set; }
         
         
         public HttpRequest(Uri uri) {
@@ -53,6 +66,7 @@ namespace gwget
             this.Method = "GET";
             this.HttpVersion = "HTTP/1.1";
             this.Data = "";
+            this.httpRes = new HttpResponse();
         }
 
         public void Close() {
@@ -70,20 +84,20 @@ namespace gwget
                 return;
             }
 
-            this.socket.Send(MakeBytesFromString(this.Method + " " + this.Uri.PathAndQuery + " " + this.HttpVersion + this.HTTP_EOL));
+            this.socket.Send(MakeBytesFromString(this.Method + " " + this.Uri.PathAndQuery + " " + this.HttpVersion + HttpRequest.HTTP_EOL));
             foreach (string k in this.Headers.Keys)
             {
                 var value = this.Headers[k];
                 if(value != "")
-                    this.socket.Send(MakeBytesFromString(k + ": " + value + this.HTTP_EOL));
+                    this.socket.Send(MakeBytesFromString(k + ": " + value + HttpRequest.HTTP_EOL));
             }
             if (this.RawHeaders != "")
             {
                 this.socket.Send(MakeBytesFromString(this.RawHeaders));
-                if (this.RawHeaders.Substring(this.RawHeaders.Length - 2) != this.HTTP_EOL) 
-                    this.socket.Send(MakeBytesFromString(this.HTTP_EOL));
+                if (this.RawHeaders.Substring(this.RawHeaders.Length - 2) != HttpRequest.HTTP_EOL) 
+                    this.socket.Send(MakeBytesFromString(HttpRequest.HTTP_EOL));
             }
-            this.socket.Send(MakeBytesFromString(this.HTTP_EOL + this.HTTP_EOL));
+            this.socket.Send(MakeBytesFromString(HttpRequest.HTTP_EOL + HttpRequest.HTTP_EOL));
             if (this.Data != "")
                 this.socket.Send(MakeBytesFromString(this.Data));
 
