@@ -467,6 +467,7 @@
             this.ResponseWebBrowser.Location = new System.Drawing.Point(3, 3);
             this.ResponseWebBrowser.MinimumSize = new System.Drawing.Size(20, 20);
             this.ResponseWebBrowser.Name = "ResponseWebBrowser";
+            this.ResponseWebBrowser.ScriptErrorsSuppressed = true;
             this.ResponseWebBrowser.Size = new System.Drawing.Size(416, 545);
             this.ResponseWebBrowser.TabIndex = 0;
             // 
