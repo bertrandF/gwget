@@ -18,7 +18,7 @@
 
 namespace AboutMessageBox
 {
-    partial class Form1
+    partial class AboutMessageBox
     {
         /// <summary>
         /// Variable nécessaire au concepteur.
@@ -96,14 +96,14 @@ namespace AboutMessageBox
             this.button1.UseVisualStyleBackColor = true;
             this.button1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.button1_MouseClick);
             // 
-            // Form1
+            // AboutMessageBox
             // 
             this.AcceptButton = this.button1;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(492, 473);
             this.Controls.Add(this.splitContainer1);
-            this.Name = "Form1";
+            this.Name = "AboutMessageBox";
             this.Text = "About";
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);

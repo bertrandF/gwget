@@ -28,11 +28,11 @@ using System.Windows.Forms;
 
 namespace AboutMessageBox
 {
-    public partial class Form1 : Form
+    public partial class AboutMessageBox : Form
     {
         private string version = "GWGET 0.1\n\n";
         private string licence = Resource1.String1;
-        public Form1()
+        public AboutMessageBox()
         {
             InitializeComponent();
 
