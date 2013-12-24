@@ -94,6 +94,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AboutMessageBox\AboutMessageBox.csproj">
+      <Project>{73a45e9c-ae8e-4057-944f-662d813ea873}</Project>
+      <Name>AboutMessageBox</Name>
+    </ProjectReference>
     <ProjectReference Include="..\HeadersPrompt\HeadersPrompt.csproj">
       <Project>{3e9a135e-1ac7-4020-bf43-417026ed8157}</Project>
       <Name>HeadersPrompt</Name>

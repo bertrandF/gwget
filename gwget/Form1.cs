@@ -16,6 +16,7 @@
     along with this program.  If not, see [http://www.gnu.org/licenses/].
  * **/
 using HeadersPrompt;
+using AboutMessageBox;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11026,6 +11027,12 @@ namespace gwget
         private void quitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AboutMessageBox.AboutMessageBox about = new AboutMessageBox.AboutMessageBox();
+            about.ShowDialog();
         }
 
     }
