@@ -59,6 +59,12 @@
             this.ResponseTextBox = new System.Windows.Forms.RichTextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.ResponseWebBrowser = new System.Windows.Forms.WebBrowser();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -74,12 +80,13 @@
             this.ResponseTabs.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Location = new System.Drawing.Point(0, 24);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -89,7 +96,7 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.Response);
-            this.splitContainer1.Size = new System.Drawing.Size(777, 466);
+            this.splitContainer1.Size = new System.Drawing.Size(777, 481);
             this.splitContainer1.SplitterDistance = 337;
             this.splitContainer1.TabIndex = 0;
             // 
@@ -99,7 +106,7 @@
             this.Request.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Request.Location = new System.Drawing.Point(0, 0);
             this.Request.Name = "Request";
-            this.Request.Size = new System.Drawing.Size(337, 466);
+            this.Request.Size = new System.Drawing.Size(337, 481);
             this.Request.TabIndex = 0;
             this.Request.TabStop = false;
             this.Request.Text = "Request";
@@ -142,7 +149,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(331, 447);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(331, 462);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // HostLabel
@@ -269,7 +276,7 @@
             this.button1.Dock = System.Windows.Forms.DockStyle.Right;
             this.button1.Location = new System.Drawing.Point(253, 338);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 106);
+            this.button1.Size = new System.Drawing.Size(75, 121);
             this.button1.TabIndex = 16;
             this.button1.Text = "Send";
             this.button1.UseVisualStyleBackColor = true;
@@ -406,7 +413,7 @@
             this.Response.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Response.Location = new System.Drawing.Point(0, 0);
             this.Response.Name = "Response";
-            this.Response.Size = new System.Drawing.Size(436, 466);
+            this.Response.Size = new System.Drawing.Size(436, 481);
             this.Response.TabIndex = 0;
             this.Response.TabStop = false;
             this.Response.Text = "Response";
@@ -419,7 +426,7 @@
             this.ResponseTabs.Location = new System.Drawing.Point(3, 16);
             this.ResponseTabs.Name = "ResponseTabs";
             this.ResponseTabs.SelectedIndex = 0;
-            this.ResponseTabs.Size = new System.Drawing.Size(430, 447);
+            this.ResponseTabs.Size = new System.Drawing.Size(430, 462);
             this.ResponseTabs.TabIndex = 1;
             // 
             // tabPage1
@@ -428,7 +435,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(422, 421);
+            this.tabPage1.Size = new System.Drawing.Size(422, 436);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Raw";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -439,7 +446,7 @@
             this.ResponseTextBox.Location = new System.Drawing.Point(3, 3);
             this.ResponseTextBox.Name = "ResponseTextBox";
             this.ResponseTextBox.ReadOnly = true;
-            this.ResponseTextBox.Size = new System.Drawing.Size(416, 415);
+            this.ResponseTextBox.Size = new System.Drawing.Size(416, 430);
             this.ResponseTextBox.TabIndex = 0;
             this.ResponseTextBox.Text = "";
             // 
@@ -464,12 +471,61 @@
             this.ResponseWebBrowser.Size = new System.Drawing.Size(416, 415);
             this.ResponseWebBrowser.TabIndex = 0;
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(777, 24);
+            this.menuStrip1.TabIndex = 1;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.saveToolStripMenuItem,
+            this.saveAsToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.quitToolStripMenuItem});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(35, 20);
+            this.fileToolStripMenuItem.Text = "File";
+            // 
+            // saveToolStripMenuItem
+            // 
+            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saveToolStripMenuItem.Text = "Save";
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
+            // 
+            // saveAsToolStripMenuItem
+            // 
+            this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saveAsToolStripMenuItem.Text = "Save As";
+            this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
+            // 
+            // quitToolStripMenuItem
+            // 
+            this.quitToolStripMenuItem.Name = "quitToolStripMenuItem";
+            this.quitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.quitToolStripMenuItem.Text = "Quit";
+            this.quitToolStripMenuItem.Click += new System.EventHandler(this.quitToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(777, 466);
+            this.ClientSize = new System.Drawing.Size(777, 505);
             this.Controls.Add(this.splitContainer1);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Graphical wget";
             this.splitContainer1.Panel1.ResumeLayout(false);
@@ -488,7 +544,10 @@
             this.ResponseTabs.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -525,6 +584,12 @@
         private System.Windows.Forms.ListView HeaderListView;
         private System.Windows.Forms.ColumnHeader HeaderColumn;
         private System.Windows.Forms.ColumnHeader ValueColumn;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveAsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem quitToolStripMenuItem;
 
     }
 }

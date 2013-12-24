@@ -19,6 +19,8 @@ namespace gwget
     {
         // Members
         private HttpRequest httpReq;
+        private string saveTo;
+        private SaveFileDialog sfd;
 
         // Check the differents fields of the form for mistakes
         private bool validateForm() {
@@ -10968,6 +10970,45 @@ namespace gwget
 "amaya/8.8.5 libwww/5.4.0",
 "amaya/11.2 amaya/5.4.0",
             });
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (this.saveTo != "")
+            {
+                var file = new FileStream(this.saveTo, FileMode.OpenOrCreate);
+                file.Write(Encoding.UTF8.GetBytes(ResponseTextBox.Text), 0, Encoding.UTF8.GetByteCount(ResponseTextBox.Text));
+                file.Close();
+            }
+            else
+                saveAsToolStripMenuItem_Click(sender, e);
+
+        }
+
+        private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (ResponseTextBox.Text != "") 
+            {
+                this.saveTo = "";
+                this.sfd = new SaveFileDialog();
+                this.sfd.RestoreDirectory = false;
+
+                if (DialogResult.OK == this.sfd.ShowDialog())
+                { 
+                    var file = this.sfd.OpenFile();
+                    if (file != null) 
+                    {
+                        file.Write(Encoding.UTF8.GetBytes(ResponseTextBox.Text), 0, Encoding.UTF8.GetByteCount(ResponseTextBox.Text));
+                        this.saveTo = this.sfd.FileName;
+                        file.Close();
+                    }
+                }
+            }
+        }
+
+        private void quitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
 
     }
