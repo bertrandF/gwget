@@ -6,6 +6,7 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gwget", "gwget\gwget.csproj", "{B8854D53-9F0E-44B8-9770-6A69D40D4DBC}"
 	ProjectSection(ProjectDependencies) = postProject
 		{3E9A135E-1AC7-4020-BF43-417026ED8157} = {3E9A135E-1AC7-4020-BF43-417026ED8157}
+		{73A45E9C-AE8E-4057-944F-662D813EA873} = {73A45E9C-AE8E-4057-944F-662D813EA873}
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeadersPrompt", "HeadersPrompt\HeadersPrompt.csproj", "{3E9A135E-1AC7-4020-BF43-417026ED8157}"
