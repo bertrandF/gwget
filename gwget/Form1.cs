@@ -120,12 +120,19 @@ namespace gwget
             httpReq = null;
             httpReq = new HttpRequest(uriBuilder.Uri);
             httpReq.Headers.Add("User-Agent", UserAgentComboBox.Text);
-            // TODO: other fields
+            LoadHttpHeaders(httpReq, HeaderListView.Items);
             httpReq.Data = DataTextBox.Text;
             httpReq.Method = MethodComboBox.Text;
             httpReq.HttpVersion = HTTPVersionTextBox.Text;
 
             httpReq.SendRequest(new AsyncCallback(ReceiveCallback));
+        }
+
+        // Load HTTP headers from HeaderListView into HttpRequest class
+        private void LoadHttpHeaders(HttpRequest httpReq, ListView.ListViewItemCollection items) 
+        {
+            foreach (ListViewItem i in items) 
+                httpReq.Headers.Add(i.SubItems[0].Text, i.SubItems[1].Text);
         }
 
         // Add a new header

@@ -86,6 +86,7 @@ namespace gwget
             this.Method = "GET";
             this.HttpVersion = "HTTP/1.1";
             this.Data = "";
+            this.RawHeaders = "";
             this.httpRes = new HttpResponse();
         }
 
@@ -127,15 +128,6 @@ namespace gwget
             state.workSocket = this.socket;
             state.httpReq = this;
             this.socket.BeginReceive(state.buffer, 0, StateObject.BufferSize, 0, callback, state);
-
-            //HttpResponse httpResp = new HttpResponse();
-            //byte[] buffer = new byte[1024];
-            //int bytes = 0;
-            //do {
-            //    bytes = this.socket.Receive(buffer, buffer.Length, 0);
-            //    httpResp.Text += MakeStringFromBytes(buffer);
-            //}while(bytes > 0);
-            //this.socket.Close();
         }
 
 
