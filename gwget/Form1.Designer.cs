@@ -85,6 +85,7 @@ namespace gwget
             this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ModifyHeaderButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -165,10 +166,9 @@ namespace gwget
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(331, 462);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
@@ -223,7 +223,7 @@ namespace gwget
             this.AdditionalFieldsLabel.Location = new System.Drawing.Point(3, 150);
             this.AdditionalFieldsLabel.Name = "AdditionalFieldsLabel";
             this.tableLayoutPanel1.SetRowSpan(this.AdditionalFieldsLabel, 2);
-            this.AdditionalFieldsLabel.Size = new System.Drawing.Size(70, 105);
+            this.AdditionalFieldsLabel.Size = new System.Drawing.Size(70, 110);
             this.AdditionalFieldsLabel.TabIndex = 7;
             this.AdditionalFieldsLabel.Text = "Additional fields :";
             this.AdditionalFieldsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -294,7 +294,7 @@ namespace gwget
             // button1
             // 
             this.button1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.button1.Location = new System.Drawing.Point(253, 338);
+            this.button1.Location = new System.Drawing.Point(253, 343);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 121);
             this.button1.TabIndex = 16;
@@ -326,7 +326,7 @@ namespace gwget
             // 
             this.DataLabel.AutoSize = true;
             this.DataLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DataLabel.Location = new System.Drawing.Point(3, 255);
+            this.DataLabel.Location = new System.Drawing.Point(3, 260);
             this.DataLabel.Name = "DataLabel";
             this.DataLabel.Size = new System.Drawing.Size(70, 80);
             this.DataLabel.TabIndex = 19;
@@ -336,7 +336,7 @@ namespace gwget
             // DataTextBox
             // 
             this.DataTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DataTextBox.Location = new System.Drawing.Point(79, 258);
+            this.DataTextBox.Location = new System.Drawing.Point(79, 263);
             this.DataTextBox.Name = "DataTextBox";
             this.DataTextBox.Size = new System.Drawing.Size(249, 74);
             this.DataTextBox.TabIndex = 20;
@@ -374,8 +374,9 @@ namespace gwget
             // 
             // splitContainer2.Panel2
             // 
+            this.splitContainer2.Panel2.Controls.Add(this.ModifyHeaderButton);
             this.splitContainer2.Panel2.Controls.Add(this.DeleteHeaderButton);
-            this.splitContainer2.Size = new System.Drawing.Size(249, 19);
+            this.splitContainer2.Size = new System.Drawing.Size(249, 24);
             this.splitContainer2.SplitterDistance = 83;
             this.splitContainer2.TabIndex = 23;
             // 
@@ -384,7 +385,7 @@ namespace gwget
             this.AddHeaderButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.AddHeaderButton.Location = new System.Drawing.Point(0, 0);
             this.AddHeaderButton.Name = "AddHeaderButton";
-            this.AddHeaderButton.Size = new System.Drawing.Size(83, 19);
+            this.AddHeaderButton.Size = new System.Drawing.Size(83, 24);
             this.AddHeaderButton.TabIndex = 0;
             this.AddHeaderButton.Text = "Add Header";
             this.AddHeaderButton.UseVisualStyleBackColor = true;
@@ -392,10 +393,10 @@ namespace gwget
             // 
             // DeleteHeaderButton
             // 
-            this.DeleteHeaderButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DeleteHeaderButton.Location = new System.Drawing.Point(0, 0);
+            this.DeleteHeaderButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.DeleteHeaderButton.Location = new System.Drawing.Point(72, 0);
             this.DeleteHeaderButton.Name = "DeleteHeaderButton";
-            this.DeleteHeaderButton.Size = new System.Drawing.Size(162, 19);
+            this.DeleteHeaderButton.Size = new System.Drawing.Size(90, 24);
             this.DeleteHeaderButton.TabIndex = 0;
             this.DeleteHeaderButton.Text = "Delete Header";
             this.DeleteHeaderButton.UseVisualStyleBackColor = true;
@@ -550,9 +551,20 @@ namespace gwget
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            // 
+            // ModifyHeaderButton
+            // 
+            this.ModifyHeaderButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.ModifyHeaderButton.Location = new System.Drawing.Point(0, 0);
+            this.ModifyHeaderButton.Name = "ModifyHeaderButton";
+            this.ModifyHeaderButton.Size = new System.Drawing.Size(66, 24);
+            this.ModifyHeaderButton.TabIndex = 1;
+            this.ModifyHeaderButton.Text = "Modify";
+            this.ModifyHeaderButton.UseVisualStyleBackColor = true;
+            this.ModifyHeaderButton.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ModifyHeaderButton_MouseClick);
             // 
             // Form1
             // 
@@ -628,6 +640,7 @@ namespace gwget
         private System.Windows.Forms.ToolStripMenuItem quitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.Button ModifyHeaderButton;
 
     }
 }

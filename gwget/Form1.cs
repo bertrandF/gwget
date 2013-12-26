@@ -11035,6 +11035,18 @@ namespace gwget
             about.ShowDialog();
         }
 
+        private void ModifyHeaderButton_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (HeaderListView.SelectedItems.Count > 0)
+            {
+                HeaderPrompt hp = new HeaderPrompt(HeaderListView.SelectedItems[0].SubItems[0].Text, HeaderListView.SelectedItems[0].SubItems[1].Text);
+                if (hp.ShowDialog() == DialogResult.OK) {
+                    HeaderListView.SelectedItems[0].SubItems[0].Text = hp.HeaderName;
+                    HeaderListView.SelectedItems[0].SubItems[1].Text = hp.HeaderValue;
+                }
+            }
+        }
+
     }
 }
 

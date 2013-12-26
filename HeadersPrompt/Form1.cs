@@ -38,6 +38,12 @@ namespace HeadersPrompt
         {
             InitializeComponent();
         }
+        public HeaderPrompt(string name, string value) {
+            InitializeComponent();
+            this.comboBox1.Text = name;
+            this.textBox1.Text = value;
+        }
+
         private void OkButton1_MouseClick(object sender, MouseEventArgs e)
         {
             this.HeaderName = this.comboBox1.Text;
